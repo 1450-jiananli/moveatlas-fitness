@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b19">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101b19'/%3E%3Ctext x='14' y='47' font-size='40' font-family='Arial' font-weight='bold' fill='%23b8d66a'%3EM%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="依身體部位尋找健身動作，查看分階段姿勢示意、訓練步驟與目標肌群。">
+  <title>MoveAtlas｜健身動作圖鑑</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="MoveAtlas 回到頂端"><span class="brand-mark">M<span>↗</span></span><span>MOVE<span class="brand-light">ATLAS</span></span></a>
+    <nav class="topnav" aria-label="主選單"><a href="#explore">動作圖鑑</a><a href="#guide">使用方法</a></nav>
+    <a class="top-action" href="#explore">開始探索 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR MOVEMENT LIBRARY <span class="eyebrow-line"></span> 01 / 03</div>
+          <h1 id="hero-title">每個動作，<br><em>練得更明白。</em></h1>
+          <p>從你想訓練的部位開始，找到適合的動作。看清楚怎麼做、練到哪裡，再開始下一組。</p>
+          <a class="hero-cta" href="#explore">探索動作 <span aria-hidden="true">↗</span></a>
+          <div class="hero-stats"><div><strong id="exercise-count">24</strong><span>精選動作</span></div><div><strong>8</strong><span>訓練部位</span></div><div><strong>3</strong><span>動作階段</span></div></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit art-orbit-outer"></div><div class="art-orbit art-orbit-inner"></div>
+          <div class="art-label art-label-a"><span class="art-dot"></span> FIND YOUR FORM</div>
+          <svg class="hero-figure" viewBox="0 0 420 530" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="211" cy="82" r="38" fill="#D5E5B1"/>
+            <path d="M190 112L169 145L162 248L202 277L247 244L247 147L229 112" fill="#D5E5B1"/>
+            <path d="M169 148L112 181L81 262M247 148L304 177L338 259" stroke="#D5E5B1" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M184 263L156 365L128 467M225 266L254 361L296 467" stroke="#D5E5B1" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M75 257L49 257M337 257L363 257" stroke="#B5D35A" stroke-width="24" stroke-linecap="round"/>
+            <path d="M25 220V294M49 229V286M365 229V286M389 220V294" stroke="#B5D35A" stroke-width="12" stroke-linecap="round"/>
+            <path d="M136 467H99M296 467H336" stroke="#D5E5B1" stroke-width="22" stroke-linecap="round"/>
+            <path d="M185 140L211 157L236 140M179 194L204 209L234 195M177 239L204 251L238 238" stroke="#789360" stroke-width="3" opacity=".5"/>
+            <circle cx="210" cy="196" r="126" stroke="#B5D35A" stroke-width="1" stroke-dasharray="4 9" opacity=".5"/>
+          </svg>
+          <div class="art-label art-label-b">STRENGTH<br><strong>STARTS HERE.</strong></div>
+          <span class="art-cross art-cross-a">+</span><span class="art-cross art-cross-b">+</span>
+        </div>
+      </div>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span>↓</span><span>MOVE BETTER. FEEL STRONGER.</span></div>
+    </section>
+
+    <section class="explore section-shell" id="explore" aria-labelledby="explore-title">
+      <div class="section-heading"><div><span class="section-index">01 / THE LIBRARY</span><h2 id="explore-title">找到今天想練的<span>部位。</span></h2><p>先選部位，再依器材或關鍵字縮小範圍。每個動作都能獨立查看。</p></div><span class="heading-mark" aria-hidden="true">↗</span></div>
+      <div class="controls">
+        <div id="body-filters" class="body-filters" role="group" aria-label="依訓練部位篩選"></div>
+        <div class="search-row">
+          <label class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">搜尋動作或肌群</span><input id="search" type="search" placeholder="搜尋動作或肌群，例如：深蹲、胸大肌" autocomplete="off"></label>
+          <label class="select-wrap"><span>器材</span><select id="equipment"><option value="all">全部器材</option><option value="徒手">徒手</option><option value="啞鈴">啞鈴</option><option value="槓鈴">槓鈴</option><option value="器械">器械</option></select></label>
+        </div>
+      </div>
+      <div class="results-head"><div><span class="results-kicker">EXERCISES</span><h3 id="results-title">全部動作</h3></div><span id="results-count" aria-live="polite"></span></div>
+      <div id="exercise-grid" class="exercise-grid"></div>
+      <div id="empty" class="empty" hidden><span>⌕</span><h3>找不到符合的動作</h3><p>試試其他部位、器材或搜尋字詞。</p><button id="reset-filters" type="button">清除篩選 ↗</button></div>
+    </section>
+
+    <section class="guide" id="guide" aria-labelledby="guide-title"><div class="section-shell guide-inner"><div><span class="section-index">02 / HOW TO USE</span><h2 id="guide-title">選一個動作，<br><em>開始了解它。</em></h2></div><div class="guide-steps"><div><span>01</span><strong>選部位</strong><p>依你今天的訓練目標挑選。</p></div><div><span>02</span><strong>看動作</strong><p>查看起始、動作中與完成姿勢。</p></div><div><span>03</span><strong>認識肌群</strong><p>了解主要與輔助訓練位置。</p></div></div></div></section>
+  </main>
+  <footer><div class="section-shell footer-inner"><span class="footer-brand">MOVEATLAS <span>↗</span></span><p>動作示意僅供學習參考；訓練時請依個人能力調整重量與活動範圍。</p><a href="#top">回到頂端 ↑</a></div></footer>
+
+  <div id="detail-overlay" class="detail-overlay" hidden><div class="overlay-backdrop" data-close="true"></div><section class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title" tabindex="-1"><button class="close-btn" id="close-detail" type="button" aria-label="關閉動作介紹">×</button><div id="detail-content"></div></section></div>
+</body>
+</html>
